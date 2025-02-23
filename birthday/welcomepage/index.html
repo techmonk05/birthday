@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Love! 🎉</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Welcome Section -->
+    <div class="welcome-container">
+        <h1 class="glow-text">Happy Birthday, babygirl❤️</h1>
+        <p class="fade-in">A surprise awaits you</p>
+    <script src="script.js"></script>
+
+       
+    </div>
+    <nav>
+        <ul>
+            <li><a href="loveletter.html">Touch Me</a></li>
+        </ul>
+    </nav>
+    <body>
+        <!-- First Slide (Baby Picture) -->
+        <div id="slide1" class="slide active">
+            <h1 class="glow-text">From This</h1>
+            <div class="image-container">
+                <img src="image2.jpg" alt="Baby Picture">
+            </div>
+        </div>
+    
+        <!-- Second Slide (Adult Picture) -->
+        <div id="slide2" class="slide">
+            <h1 class="glow-text">To This</h1>
+            <div class="image-container">
+                <img src="image3.jpg" alt="Adult Picture">
+            </div>
+        </div>
+    
+        <!-- Next Button -->
+        <button id="nextSlide">Next</button>
+        <button id="prevSlide">Previous</button>
+    
+        <script src="script.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                for (let i = 0; i < 20; i++) {
+                    let sparkle = document.createElement("div");
+                    sparkle.classList.add("sparkle");
+                    sparkle.style.top = Math.random() * 100 + "vh";
+                    sparkle.style.left = Math.random() * 100 + "vw";
+                    sparkle.style.animationDuration = Math.random() * 3 + 2 + "s";
+                    document.body.appendChild(sparkle);
+                }
+            });
+        </script>
+            
+    </body>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
