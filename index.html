@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Love! 🎉</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Welcome Section -->
+    <div class="welcome-container">
+        <h1 class="glow-text">Happy Birthday, babygirl❤️</h1>
+        <p class="fade-in">A surprise awaits you</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="loveletter.html">Touch Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- First Slide (Baby Picture) -->
+    <div id="slide1" class="slide active">
+        <h1 class="glow-text">From This</h1>
+        <div class="image-container">
+            <img src="image2.jpg" alt="Baby Picture">
+        </div>
+    </div>
+
+    <!-- Second Slide (Adult Picture) -->
+    <div id="slide2" class="slide">
+        <h1 class="glow-text">To This</h1>
+        <div class="image-container">
+            <img src="image3.jpg" alt="Adult Picture">
+        </div>
+    </div>
+
+    <!-- Next and Previous Buttons -->
+    <div class="buttons">
+        <button id="nextSlide">Next</button>
+        <button id="prevSlide">Previous</button>
+    </div>
+
+    <!-- Audio Controls -->
+    <div class="audio-controls">
+        <audio id="backgroundMusic" src="laufey.mp3" loop></audio>
+        <button id="playMusic">Play Music</button>
+        <button id="pauseMusic">Pause Music</button>
+    </div>
+
+    
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            const playMusicButton = document.getElementById('playMusic');
+            const pauseMusicButton = document.getElementById('pauseMusic');
+
+            // Load saved playback state
+            const savedTime = localStorage.getItem('backgroundMusicTime');
+            const isPlaying = localStorage.getItem('backgroundMusicPlaying') === 'true';
+
+            if (savedTime) {
+                backgroundMusic.currentTime = parseFloat(savedTime);
+            }
+
+            if (isPlaying) {
+                backgroundMusic.play();
+            }
+
+            // Save playback state before unloading the page
+            window.addEventListener('beforeunload', function() {
+                localStorage.setItem('backgroundMusicTime', backgroundMusic.currentTime);
+                localStorage.setItem('backgroundMusicPlaying', !backgroundMusic.paused);
+            });
+
+            playMusicButton.addEventListener('click', function() {
+                backgroundMusic.play();
+            });
+
+            pauseMusicButton.addEventListener('click', function() {
+                backgroundMusic.pause();
+            });
+
+            // Sparkle effect
+            for (let i = 0; i < 20; i++) {
+                let sparkle = document.createElement("div");
+                sparkle.classList.add("sparkle");
+                sparkle.style.top = Math.random() * 100 + "vh";
+                sparkle.style.left = Math.random() * 100 + "vw";
+                sparkle.style.animationDuration = Math.random() * 3 + 2 + "s";
+                document.body.appendChild(sparkle);
+            }
+        });
+    </script>
+</body>
+</html>
