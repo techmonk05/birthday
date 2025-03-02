@@ -49,6 +49,9 @@
         <button id="pauseMusic">Pause Music</button>
     </div>
 
+    <!-- Balloons -->
+    <div class="balloon-container"></div>
+
     
     <script src="script.js"></script>
     <script>
@@ -92,7 +95,22 @@
                 sparkle.style.animationDuration = Math.random() * 3 + 2 + "s";
                 document.body.appendChild(sparkle);
             }
+
+            // Create balloons at intervals
+            setInterval(createBalloon, 1000);
         });
+
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = Math.random() * 100 + 'vw';
+            balloon.style.backgroundColor = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.7)`;
+            document.body.appendChild(balloon);
+
+            setTimeout(() => {
+                balloon.remove();
+            }, 10000); // Remove balloon after 10 seconds
+        }
     </script>
 </body>
 </html>

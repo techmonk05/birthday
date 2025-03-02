@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relationship Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+
+    <div class="container">
+        <h1 class="title">Brainrot ahh quiz bae💕</h1>
+
+        <form id="quiz-form">
+            <div class="question">
+                <p>1️⃣What are they saying in Reyansh College theme song </p>
+                <input type="text" id="q1" required>
+            </div>
+
+            <div class="question">
+                <p>2️⃣Will you be the ts to my pmo</p>
+                <input type="text" id="q2" required>
+            </div>
+
+            <div class="question">
+                <p>3️⃣Which song reminds us of each other?</p>
+                <input type="text" id="q3" required>
+            </div>
+
+            <div class="question">
+                <p>4️⃣Actually outta questions man happy birthday</p>
+                <input type="text" id="q4" required>
+            </div>
+
+            
+        </form>
+
+       
+        
+
+        <div class="audio-controls">
+            <audio id="backgroundMusic" src="loftadditions.co.za - No. 1 Party Anthem.mp3" loop></audio>
+            <button id="playMusic">Play Music</button>
+            <button id="pauseMusic">Pause Music</button>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const backgroundMusic = document.getElementById('backgroundMusic');
+                const playMusicButton = document.getElementById('playMusic');
+                const pauseMusicButton = document.getElementById('pauseMusic');
+    
+                // Load saved playback state
+                const savedTime = localStorage.getItem('backgroundMusicTime');
+                const isPlaying = localStorage.getItem('backgroundMusicPlaying') === 'true';
+    
+                if (savedTime) {
+                    backgroundMusic.currentTime = parseFloat(savedTime);
+                }
+    
+                if (isPlaying) {
+                    backgroundMusic.play();
+                }
+    
+                // Save playback state before unloading the page
+                window.addEventListener('beforeunload', function() {
+                    localStorage.setItem('backgroundMusicTime', backgroundMusic.currentTime);
+                    localStorage.setItem('backgroundMusicPlaying', !backgroundMusic.paused);
+                });
+    
+                playMusicButton.addEventListener('click', function() {
+                    backgroundMusic.play();
+                });
+    
+                pauseMusicButton.addEventListener('click', function() {
+                    backgroundMusic.pause();
+                });
+            });
+        </script>
+            <nav>
+                <ul>
+                    <li><a href="final_message.html">One final time im almost there🤤🤤</a></li>
+                </ul>
+            </nav>
+
+</body>
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const quizForm = document.getElementById('quiz-form');
+        const resultMessage = document.getElementById('result-message');
+        const nextPageButton = document.getElementById('nextPage');
+        const bgMusic = document.getElementById('bg-music');
+
+        quizForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const q1 = document.getElementById('q1').value;
+            const q2 = document.getElementById('q2').value;
+            const q3 = document.getElementById('q3').value;
+            const q4 = document.getElementById('q4').value;
+
+            if (q1.toLowerCase() === 'college' && q2.toLowerCase() === 'pizza' && q3.toLowerCase() === 'perfect' && q4.toLowerCase() === 'maldives') {
+                resultMessage.classList.remove('hidden');
+                nextPageButton.classList.remove('hidden');
+            }
+        });
+
+        nextPageButton.addEventListener('click', function() {
+            window.location.href = 'surprise.html';
+        });
+
+        window.addEventListener('beforeunload', function() {
+            bgMusic.pause();
+        });
+    });

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     I pity them for they have been witnessing an amazing person in action and don't even realise it.
     I pity them but I envy them even more.
     Why couldn't it be me, why wasn't I around you, why are we so far away.
-    Would have given my everything to be there and celebrate this with you, happy birthday my love.
+    Would have given my everything to be there and celebrate this with you, happy birthday beautiful.
 
     
 
@@ -32,35 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     typeLetter();
-    // Function to create balloons
-    function createBalloon() {
-        const balloon = document.createElement("div");
-        balloon.classList.add("balloon");
-
-        // Random position
-        let startX = Math.random() * window.innerWidth;
-        balloon.style.left = `${startX}px`;
-
-        // Random color for balloons
-        let colors = ["red", "blue", "green", "yellow", "pink", "purple"];
-        balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-
-        // Add balloon to the container
-        const balloonContainer = document.querySelector(".balloon-container");
-        if (balloonContainer) {
-            balloonContainer.appendChild(balloon);
-
-            // Remove balloon after animation
-            setTimeout(() => {
-                balloon.remove();
-            }, 5000); // Matches the animation duration
-        } else {
-            console.error("❌ ERROR: 'balloon-container' element not found in HTML.");
-        }
-    }
-
-    // Generate balloons at intervals
-    setInterval(createBalloon, 1000);
+  
 });
 
 // Move to next page on Enter key
@@ -69,3 +41,18 @@ document.addEventListener("keydown", function(event) {
         window.location.href = "quiz.html"; // Redirects to the Quiz Page
     }
 });
+
+function createBalloon() {
+    const balloon = document.createElement('div');
+    balloon.className = 'balloon';
+    balloon.style.left = Math.random() * 100 + 'vw';
+    balloon.style.backgroundColor = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.7)`;
+    document.body.appendChild(balloon);
+
+    setTimeout(() => {
+        balloon.remove();
+    }, 10000); // Remove balloon after 10 seconds
+}
+
+// Create balloons at intervals
+setInterval(createBalloon, 1000);

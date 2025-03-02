@@ -33,3 +33,17 @@ document.addEventListener("keydown", function(event) {
     nextButton.addEventListener("click", showNextSlide);
     prevButton.addEventListener("click", showPrevSlide);
 });
+function createBalloon() {
+    const balloon = document.createElement('div');
+    balloon.className = 'balloon';
+    balloon.style.left = Math.random() * 100 + 'vw';
+    balloon.style.backgroundColor = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.7)`;
+    document.body.appendChild(balloon);
+
+    setTimeout(() => {
+        balloon.remove();
+    }, 10000); // Remove balloon after 10 seconds
+}
+
+// Create balloons at intervals
+setInterval(createBalloon, 1000);

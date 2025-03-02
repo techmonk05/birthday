@@ -29,7 +29,14 @@ body {
     text-shadow: 0 0 10px #ff69b4;
     animation: glow 2s infinite alternate;
 }
-
+.fade-in{
+    animation: fadeIn 2s;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff69b4;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+}
 /* Soft Glow Animation */
 @keyframes glow {
     0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
@@ -74,7 +81,7 @@ button:hover {
 }
 
 .image-container img {
-    max-width: 100%;
+    max-width: 30%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 0 15px gold;
@@ -161,4 +168,32 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #ff1493;
+}
+.balloon {
+    position: absolute;
+    bottom: -50px; /* Start below the viewport */
+    width: 50px;
+    height: 70px;
+    border-radius: 50%;
+    animation: floatUp 10s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-110vh); /* Move above the viewport */
+    }
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -20px; /* Adjust this value to connect the stick to the balloon */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
 }

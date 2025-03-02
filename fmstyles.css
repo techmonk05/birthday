@@ -1,0 +1,58 @@
+.final-message-container {
+    text-align: center;
+    padding: 50px;
+    background: linear-gradient(to bottom right, pink, lightblue);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#final-message {
+    font-family: "Dancing Script", cursive;
+    font-size: 2rem;
+    width: 80%;
+    margin: 20px auto;
+    white-space: pre-line;
+    border-left: 3px solid #ff3d7f;
+    padding-left: 20px;
+    animation: typing 4s steps(40, end) forwards;
+    overflow: hidden;
+    opacity: 0;
+}
+#small-message {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    opacity: 0;
+    animation: rise 5s ease-in-out forwards;
+}
+
+@keyframes typing {
+    from { width: 0; opacity: 1; }
+    to { width: 100%; opacity: 1; }
+}
+
+.heart-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    clip-path: polygon(50% 0%, 100% 35%, 75% 100%, 50% 80%, 25% 100%, 0% 35%);
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="final-message-container">
+        <h1 class="glow-text">Once again, a happy birthday.💖
+            
+        </h1>
+        <p id="final-message"></p>
+
+    
+
+    <div class="heart-container"></div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" autoplay loop>
+        <source src="" type="zaalima.mp3">
+    </audio>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            const playMusicButton = document.getElementById('playMusic');
+            const pauseMusicButton = document.getElementById('pauseMusic');
+    
+            // Load saved playback state
+            const savedTime = localStorage.getItem('backgroundMusicTime');
+            const isPlaying = localStorage.getItem('backgroundMusicPlaying') === 'true';
+    
+            if (savedTime) {
+                backgroundMusic.currentTime = parseFloat(savedTime);
+            }
+    
+            if (isPlaying) {
+                backgroundMusic.play();
+            }
+    
+            // Save playback state before unloading the page
+            window.addEventListener('beforeunload', function() {
+                localStorage.setItem('backgroundMusicTime', backgroundMusic.currentTime);
+                localStorage.setItem('backgroundMusicPlaying', !backgroundMusic.paused);
+            });
+    
+            playMusicButton.addEventListener('click', function() {
+                backgroundMusic.play();
+            });
+    
+            pauseMusicButton.addEventListener('click', function() {
+                backgroundMusic.pause();
+            });
+        });
+    </script>
+    
+
+
+</body>
+</html>
